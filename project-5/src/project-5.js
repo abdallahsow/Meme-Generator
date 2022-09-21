@@ -1,10 +1,10 @@
-import "./App.css";
-import Navbar from "./components/Navbar";
+import "./project-5.css";
+import Header from "./components/Header";
 import MemeInput from "./components/MemeInput";
 
 const App = () => (
   <div className="app">
-    <Navbar />
+    <Header />
     <section className="meme-section">
       <MemeInput />
     </section>
