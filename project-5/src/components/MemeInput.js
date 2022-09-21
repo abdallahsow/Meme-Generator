@@ -10,6 +10,23 @@ const MemeInput = () => {
   const { topText, bottomText, randomImg } = meme;
   const [allMemeImgs, setAllMemeImgs] = useState([]);
 
+  useEffect(function () {
+    fetch("https://api.imgflip.com/get_memes")
+      .then((response) => response.json())
+      .then((api) => setAllMemeImgs(api.data.memes));
+  }, []);
+
+  function getMeme() {
+    const randomNumber = Math.floor(Math.random() * allMemeImgs.length);
+    const imgUrl = allMemeImgs[randomNumber].url;
+    setMeme((meme) => ({ ...meme, randomImg: imgUrl }));
+  }
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setMeme((prevMeme) => ({ ...prevMeme, [name]: value }));
+  }
+
   return (
     <div>
       <div className="meme-input">
