@@ -10,10 +10,14 @@ const MemeInput = () => {
   const { topText, bottomText, randomImg } = meme;
   const [allMemeImgs, setAllMemeImgs] = useState([]);
 
+  const fetchData = async () => {
+    const memesData = await fetch("https://api.imgflip.com/get_memes");
+    const { data } = await memesData.json();
+    setAllMemeImgs(data.memes);
+  };
+
   useEffect(function () {
-    fetch("https://api.imgflip.com/get_memes")
-      .then((response) => response.json())
-      .then((api) => setAllMemeImgs(api.data.memes));
+    fetchData();
   }, []);
 
   function getMeme() {
