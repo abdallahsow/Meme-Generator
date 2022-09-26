@@ -1,4 +1,4 @@
-import "./project-5.css";
+import "./App.css";
 import Header from "./components/Header";
 import MemeInput from "./components/MemeInput";
 

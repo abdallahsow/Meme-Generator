@@ -1,6 +1,6 @@
 import Joker from "../images/troller-face.png";
 
-export default function Navbar() {
+export default function Header() {
   return (
     <nav className="header">
       <img className="header-icon" src={Joker} alt="Troll Face" />
